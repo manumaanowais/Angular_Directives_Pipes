@@ -13,17 +13,17 @@
         <tr>
             <td>{{pipeText}}</td>
             <td>Lower Case</td>
-            <td></td>
+            <td>{{pipeText | lowercase}}</td>
         </tr>
         <tr>
             <td>{{pipeText}}</td>
             <td>Upper Case</td>
-            <td></td>
+            <td>{{pipeText | uppercase}}</td>
         </tr>    
         <tr>
             <td>{{pipeText}}</td>
             <td>Title Case</td>
-            <td></td>
+            <td>{{pipeText | titlecase}}</td>
         </tr>
         <tr>
             <td>{{pipeJson}}</td>
@@ -33,7 +33,7 @@
         <tr>
             <td>{{pipeJson}}</td>
             <td>json</td>
-            <td></td>
+            <td>{{pipeJson | json}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
@@ -43,117 +43,143 @@
         <tr>
             <td>{{pipeDate}}</td>
             <td>Date</td>
-            <td></td>
+            <td>{{pipeDate | date}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Date</td>
-            <td></td>
+            <td>{{pipeDate | date : 'dd-MM-YYYY'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Date</td>
-            <td></td>
+            <td>{{pipeDate | date : 'dd-MM-YY'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Date</td>
-            <td></td>
+            <td>{{pipeDate | date : 'dd-MMM-YYYY'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Short Date</td>
-            <td></td>
+            <td>{{pipeDate | date : 'shortDate'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Medium Date</td>
-            <td></td>
+            <td>{{pipeDate | date : 'mediumDate'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Long Date</td>
-            <td></td>
+            <td>{{pipeDate | date : 'longDate'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Short Time</td>
-            <td></td>
+            <td>{{pipeDate | date : 'shortTime'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Medium Time</td>
-            <td></td>
+            <td>{{pipeDate | date : 'mediumTime'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Long Time</td>
-            <td></td>
+            <td>{{pipeDate | date : 'longTime'}}</td>
         </tr>
         <tr>
             <td>{{pipeDate}}</td>
             <td>Full Time</td>
-            <td></td>
+            <td>{{pipeDate | date : 'fullTime'}}</td>
+        </tr> 
+        <tr>
+            <td>{{pipeDate}}</td>
+            <td>Full Time</td>
+            <td>{{pipeDate | date : 'hh:mm:ss'}}</td>
+        </tr>
+        <tr>
+            <td>{{5.123456789}}</td>
+            <td>Number</td>
+            <td>{{5.123456789 | number}}</td>
         </tr> 
         <tr>
             <td>{{5.123456789}}</td>
             <td>Number</td>
-            <td></td>
+            <td>{{5.123456789 | number : '1.6'}}</td>
         </tr> 
         <tr>
             <td>{{5.123456789}}</td>
             <td>Number</td>
-            <td></td>
-        </tr> 
-        <tr>
-            <td>{{5.123456789}}</td>
-            <td>Number</td>
-            <td></td>
+            <td>{{5.123456789 | number : '3.3-6'}}</td>
         </tr>
         <tr>
             <td>{{500}}</td>
             <td>Currency</td>
-            <td></td>
+            <td>{{500 | currency}}</td>
         </tr>
         <tr>
             <td>{{500}}</td>
             <td>Currency</td>
-            <td></td>
+            <td>{{500 | currency : 'INR'}}</td>
         </tr>
         <tr>
             <td>{{500}}</td>
             <td>Currency</td>
-            <td></td>
+            <td>{{500 | currency : 'INR' : 'code'}}</td>
         </tr>
         <tr>
             <td>{{500}}</td>
             <td>Currency</td>
-            <td></td>
+            <td>{{500 | currency : 'INR' : 'code' : '4.2-3'}}</td>
         </tr>
         <tr>
             <td>{{500}}</td>
             <td>Currency</td>
-            <td>td>
+            <td>{{500 | currency : 'GBP'}}</td>
         </tr>
         <tr>
             <td>{{0.25}}</td>
             <td>Percent</td>
-            <td></td>
+            <td>{{0.25 | percent}}</td>
         </tr>
         <tr>
             <td>{{cars}}</td>
             <td>Slice</td>
-            <td></td>
+            <td>{{cars | slice : 3}}</td>
         </tr>
         <tr>
             <td>{{cars}}</td>
             <td>Slice</td>
-            <td></td>
+            <td>{{cars | slice : 3 : 6}}</td>
         </tr>
         <tr>
             <td>{{cars}}</td>
             <td>Slice</td>
-            <td></td>
+            <td>{{cars | slice : -3 : -2}}</td>
+        </tr>
+        <tr>
+            <td>{{strPromise}}</td>
+            <td>Async</td>
+            <td>{{strPromise | async}}</td>
+        </tr>
+        <tr>
+            <td>{{strObs}}</td>
+            <td>Async</td>
+            <td>{{strObs | async}}</td>
+        </tr>
+        <tr>
+            <td>{{currentTime}}</td>
+            <td>Async</td>
+            <td>{{currentTime | async}}</td>
         </tr>
     </tbody>
 </table>
+
+<input type="text" placeholder="Search cars..." [(ngModel)]="searchedCar"/>
+
+<ul>
+    <li *ngFor="let car of cars | filter : searchedCar">{{car}}</li>
+</ul>
